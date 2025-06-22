@@ -1,8 +1,32 @@
 import torch
+import torch.nn as nn
+from torchvision import transforms
 import pandas as pd
 from PIL import Image
 import streamlit as st
-from torchvision import transforms
+
+class SimpleCNN(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Conv2d(1, 32, kernel_size=3, padding=0),   # out: 26×26
+            nn.ReLU(),
+            nn.MaxPool2d(kernel_size=2, stride=2),        # out: 13×13
+
+            nn.Conv2d(32, 64, kernel_size=3, padding=0),  # out: 11×11
+            nn.ReLU(),
+            nn.MaxPool2d(kernel_size=2, stride=2),        # out: 5×5
+
+            nn.Flatten(),
+            nn.Linear(64 * 6 * 6, 128),
+            nn.ReLU(),
+            nn.Dropout(0.5),
+            nn.Linear(128, 10),
+            nn.Softmax(dim=1)
+        )
+
+    def forward(self, x):
+        return self.net(x)
 
 
 transformer = transforms.Compose([
