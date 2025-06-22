@@ -6,7 +6,7 @@ pandas==2.2.3
 pillow==11.0.0
 scikit-learn==1.7.0
 streamlit==1.46.0
-torch==2.7.0+cu118
+torch==2.7.0          # if gpu: torch==2.7.0+cu118
 torchinfo==1.8.0
-torchvision==0.22.0+cu118
+torchvision==0.22.0   # if gpu: torchvision==0.22.0+cu118
 tqdm==4.67.1
