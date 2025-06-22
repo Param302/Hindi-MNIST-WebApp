@@ -1,4 +1,4 @@
-# Hindi MNIST WebApp
+# [Hindi MNIST WebApp 🔗](https://hindi-mnist.streamlit.app/)
 
 A web application for **Hindi** handwritten digit recognition using a custom **Convolutional Neural Network** (CNN).
 
